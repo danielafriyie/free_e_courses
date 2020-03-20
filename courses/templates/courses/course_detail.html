@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %} {{ course.title }} {% endblock title %}
+
+{% block content %}
+    <section id="course-detail">
+        <div class="container">
+
+            {#        top ad #}
+            {% include 'partials/top_ad.html' %}
+            {#        end of top ad #}
+
+            <div class="row py-5">
+                <div class="col">
+                    {% if course %}
+                        <div class="text-center py-3">
+                            <img style="border-radius: 5px; width: 600px; height: 400px" class="img-fluid"
+                                 src="{{ course.image.url }}" alt="course image">
+                        </div>
+                        <div style="color: #818487">
+                            {{ course.date|date:'d-M-Y' }}
+                        </div>
+                        <div class="text-decoration-none text-dark text-center">
+                            <h1>{{ course.title }}</h1>
+                        </div>
+                        <div class="text-decoration-none text-dark text-center">
+                            <p class="py-3 lead">
+                                {{ course.description|safe }}
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            {% if course.torrent_file %}
+                                <a href="{{ course.torrent_file.url }}" class="btn btn-success px-5 py-2">
+                                    <h4 class="px-5">Download Course</h4>
+                                </a>
+                            {% elif course.torrent_link %}
+                                <a target="_blank" href="{{ course.torrent_link }}" class="btn btn-success px-5 py-2">
+                                    <h4 class="px-5">Download Course</h4>
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="pt-5">
+                            <p class="lead">
+                                To be able to download this course, you need to have torrent client installed,
+                                if you don't have one installed, you can download it from here<br>
+                                <a href="https://www.utorrent.com/downloads/complete/track/beta/os/win">
+                                    utorrent for windows
+                                </a><br>
+                                <a href="http://bit.ly/1rj3Wt7">
+                                    utorrent for android
+                                </a>
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="lead ">
+                                        How to use utorrent on windows
+                                    </div>
+                                    <iframe class="img-fluid" src="https://www.youtube.com/embed/oyFSKqE3-uk"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="lead">
+                                        How to use utorrent on android
+                                    </div>
+                                    <iframe class="img-fluid" src="https://www.youtube.com/embed/PF9b2ldYPec"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            {#        bottom ad #}
+            {% include 'partials/bottom_ad.html' %}
+            {#        end of bottom ad #}
+        </div>
+    </section>
+{% endblock content %}

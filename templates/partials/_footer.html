@@ -1,0 +1,20 @@
+<section id="footer" class="bg-success py-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <a href="{% url 'courses:terms_condition' %}" class="text-white text-decoration-none">
+                    Terms & Conditions
+                </a>
+                <span class="text-white"> | </span>
+                <a href="{% url 'courses:privacy' %}" class="text-white text-decoration-none">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col text-center">
+                <div class="text-white">
+                    Copyright &copy; {% now 'Y' %} Free E-Courses. All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

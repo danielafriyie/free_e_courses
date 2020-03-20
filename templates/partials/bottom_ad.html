@@ -1,0 +1,13 @@
+<section id="bottom-ad">
+    <div class="container-fluid">
+        <div class="row">
+            {% if bottom_ad %}
+                {% for ad in bottom_ad %}
+                    <div class="col-lg-3 col-md-4 col-sm-12 px-1 py-3">
+                        {{ ad.ad_link|safe }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>

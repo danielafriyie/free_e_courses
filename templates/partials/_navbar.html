@@ -1,0 +1,144 @@
+<!--navbar-->
+<style>
+    #burger-btn div {
+        background: white;
+        margin: 5px;
+        width: 1.7rem;
+        height: 2px;
+    }
+
+    #sub-menu {
+        display: none;
+        line-height: 3rem;
+        z-index: 10;
+        top: 3.3rem;
+        border-radius: 5px;
+    }
+
+    #sub-menu div {
+        display: grid;
+    }
+
+    /*#navbarLinks ul li a:hover {
+        background: white;
+        color: green !important;
+    }*/
+
+    @media screen and (min-width: 576px) {
+        #sub-menu {
+            border-top: 5px solid yellowgreen;
+            position: absolute;
+        }
+
+        #category:hover #sub-menu {
+            display: block;
+        }
+    }
+</style>
+
+<nav class="navbar navbar-light navbar-expand-sm bg-success m-0 p-0 navbar-fixed-top">
+    <!--    logo-->
+    <a href="{% url 'courses:index' %}" class="navbar-brand text-uppercase font-italic text-white py-2 px-5">
+        Free E-Courses
+    </a>
+    <button type="button" class="navbar-toggler text-white mr-3" data-toggle="collapse" data-target="#navbarLinks">
+        <div id="burger-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarLinks">
+        <ul class="navbar-nav pl-3">
+            <li class="nav-item py-2">
+                <a href="{% url 'courses:index' %}" class="nav-link text-capitalize text-white">
+                    <i class="fa fa-home"></i> home
+                </a>
+            </li>
+            <li class="nav-item py-2" id="category">
+                <a href="#" class="nav-link text-capitalize text-white">
+                    <i class="fa fa-th-list"></i> category <i class="fa fa-caret-down"></i>
+                </a>
+                <div id="sub-menu" class="bg-success px-2 py-2">
+                    <div class="px-3">
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="Academics">
+                                <input type="submit" value="Academics" class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="Business">
+                                <input type="submit" value="Business" class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="Design">
+                                <input type="submit" value="Design" class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="Development">
+                                <input type="submit" value="Development"
+                                       class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="Health & Fitness">
+                                <input type="submit" value="Health & Fitness"
+                                       class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="IT & Software">
+                                <input type="submit" value="IT & Software"
+                                       class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="Marketing">
+                                <input type="submit" value="Marketing" class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="Music">
+                                <input type="submit" value="Music" class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url 'courses:category' %}" method="get">
+                                <input type="hidden" name="category" value="Office Productivity">
+                                <input type="submit" value="Office Productivity"
+                                       class="btn btn-success bg-transparent border-0">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item py-2">
+                <a id="contact" href="{% url 'courses:contact' %}" class="nav-link text-capitalize text-white">
+                    <i class="fa fa-tty"></i> contact us
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    let catBtn = document.getElementById('category');
+    let subMenu = document.getElementById('sub-menu');
+    const showCategory = () => {
+        $(subMenu).slideToggle()
+    };
+    if (window.matchMedia('(max-width: 575px)').matches) {
+        catBtn.addEventListener('click', showCategory)
+    }
+</script>
+<!--end of navbar-->

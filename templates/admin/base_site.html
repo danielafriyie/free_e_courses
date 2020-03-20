@@ -1,0 +1,59 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+
+{% block title %} Admin Area | Free E-Course {% endblock title %}
+
+{% block branding %}
+    <h1 id="head" style="font-family: Algerian, serif; color: white !important;">
+        Admin Area
+    </h1>
+{% endblock branding %}
+
+{% block extrastyle %}
+    <style>
+        #header {
+            background: #28a745;
+            color: white;
+        }
+
+        .module h2, .module caption, .inline-group h2 {
+            background: #28a745;
+            color: white
+        }
+
+        a:link, a:visited {
+            color: rgba(19, 19, 19, 0.93);
+        }
+
+        div.breadcrumbs {
+            background: yellowgreen;
+            color: white;
+        }
+
+        #container #content h1 {
+            font-family: Tahoma, serif;
+        }
+
+        .button, input[type=submit], input[type=button], .submit-row input, a.button {
+            background: #28a745;
+        }
+
+        .button.default, input[type=submit].default, .submit-row input.default {
+            background: #28a745;
+        }
+
+        .button.default:active, input[type=submit].default:active,
+        .button.default:focus, input[type=submit].default:focus,
+        .button.default:hover, input[type=submit].default:hover {
+            background: #28a745;
+        }
+
+        .button:active, input[type=submit]:active, input[type=button]:active,
+        .button:focus, input[type=submit]:focus, input[type=button]:focus,
+        .button:hover, input[type=submit]:hover, input[type=button]:hover {
+            background: #28a745;
+        }
+
+
+    </style>
+{% endblock %}

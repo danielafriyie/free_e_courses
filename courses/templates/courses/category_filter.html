@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Free E-Courses {% endblock title %}
+
+{% block content %}
+    <section id="category-filter" class="py-5">
+        <div class="container">
+            {#        top ad #}
+            {% include 'partials/top_ad.html' %}
+            {#        end of top ad #}
+
+            <div class="row">
+                {% if paginator_pages %}
+                    {% for course in paginator_pages %}
+                        <div class="col-lg-6 col-md-6 col-sm-1 py-3">
+                            <div class="pt-2 pb-4">
+                                <a href="{% url 'courses:course_detail' course.pk course.title %}">
+                                    <img style="border-radius: 5px; width: 600px; height: 400px" class="img-fluid"
+                                         src="{{ course.image.url }}" alt="course image">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{% url 'courses:course_detail' course.pk course.title %}"
+                                   class="text-decoration-none text-dark">
+                                    <h3>{{ course.title }}</h3>
+                                </a>
+                            </div>
+                            <div style="color: #818487">
+                                {{ course.date|date:'d-M-Y' }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="p-5">
+                        There is no course available under this category at the moment
+                    </div>
+                {% endif %}
+            </div>
+            {% include 'partials/_pagination.html' %}
+
+            {#        bottom ad  #}
+            {% include 'partials/bottom_ad.html' %}
+            {#        end of bottom ad #}
+        </div>
+    </section>
+{% endblock content %}
