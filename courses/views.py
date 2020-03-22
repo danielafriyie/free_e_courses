@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 from django.core.paginator import Paginator
 from django.contrib import messages as msg
+from django.contrib.auth.decorators import login_required
 
 from .models import ECourses, Contact
 
@@ -82,3 +83,26 @@ def terms_condition(request):
 
 def privacy(request):
     return render(request, 'courses/privacy_policy.html')
+
+
+@login_required
+def add_course(request):
+    user = request.user
+    if user.is_superuser:
+        if request.method == 'POST':
+            image = bytearray(request.FILES['image']),
+            title = request.POST['title']
+            des = request.POST['desc']
+            cat = request.POST['cat']
+            torrent = bytearray(request.FILES['torrent'])
+
+            ECourses.objects.create(
+                image_binary=image,
+                title=title,
+                description=des,
+                category=cat,
+                torrent_binary=torrent
+            )
+            msg.success(request, 'Course added successfully')
+            return redirect('courses:add_course')
+        return render(request, 'courses/add_course.html')

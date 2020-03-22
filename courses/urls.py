@@ -9,5 +9,6 @@ urlpatterns = [
     path('category/', views.category_filter, name='category'),
     path('contact/', views.contact, name='contact'),
     path('terms/', views.terms_condition, name='terms_condition'),
-    path('privacy/', views.privacy, name='privacy')
+    path('privacy/', views.privacy, name='privacy'),
+    path('add-course/', views.add_course, name='add_course')
 ]

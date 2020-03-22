@@ -13,10 +13,22 @@
                     {% for course in paginator_pages %}
                         <div class="col-lg-6 col-md-6 col-sm-1 py-3">
                             <div class="pt-2 pb-4">
-                                <a href="{% url 'courses:course_detail' course.pk course.title %}">
-                                    <img style="border-radius: 5px; width: 600px; height: 400px" class="img-fluid"
-                                         src="{{ course.image.url }}" alt="course image">
-                                </a>
+                                {% if course.image %}
+                                    <a href="{% url 'courses:course_detail' course.pk course.title %}">
+                                        <img style="border-radius: 5px; width: 600px; height: 400px" class="img-fluid"
+                                             src="{{ course.image.url }}" alt="course image">
+                                    </a>
+                                {% elif course.image_link %}
+                                    <a href="{% url 'courses:course_detail' course.pk course.title %}">
+                                        <img style="border-radius: 5px; width: 600px; height: 400px" class="img-fluid"
+                                             src="{{ course.image_link }}" alt="course image">
+                                    </a>
+                                {% elif course.image_binary %}
+                                    <a href="{% url 'courses:course_detail' course.pk course.title %}">
+                                        <img style="border-radius: 5px; width: 600px; height: 400px" class="img-fluid"
+                                             src="{{ course.image_binary }}" alt="course image">
+                                    </a>
+                                {% endif %}
                             </div>
                             <div>
                                 <a href="{% url 'courses:course_detail' course.pk course.title %}"

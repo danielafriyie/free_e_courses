@@ -15,11 +15,14 @@ course_category = [
 
 class ECourses(models.Model):
     image = models.ImageField(upload_to='pictures/courses/%Y/%m/%d/', blank=True, null=True)
+    image_binary = models.BinaryField(blank=True, null=True, editable=True)
+    image_link = models.CharField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=255)
     description = models.TextField()
     category = models.CharField(max_length=50, choices=course_category)
     torrent_file = models.FileField(upload_to='torrent/%Y/%m/%d/', blank=True, null=True)
     torrent_link = models.CharField(max_length=255, blank=True, null=True)
+    torrent_binary = models.BinaryField(blank=True, null=True, editable=True)
     date = models.DateTimeField()
 
     def __str__(self):
