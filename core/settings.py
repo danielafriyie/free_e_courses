@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'wd675bv4h1h1o+%3s4p@g5e_1$g-2@pa3m@4-h-k1$=$d2x(!4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['free-e-courses.herokuapp.com']
 
 # Application definition
 
