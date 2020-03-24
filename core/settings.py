@@ -147,6 +147,6 @@ MESSAGE_TAGS = {
 
 # GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = 'courses/credentials.json'
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# STATICFILES_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+STATICFILES_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 DROPBOX_OAUTH2_TOKEN = '3E061im87aAAAAAAAAAAPn1IPQanGu925rRbK-s9Cc-BXdmWzZlqjevSdY5cVGC_'
 # DROPBOX_ROOT_PATH = 'Free-Courses'
