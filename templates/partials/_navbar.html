@@ -34,12 +34,20 @@
             display: block;
         }
     }
+
+    @media screen and (max-width: 576px) {
+        #nav-logo {
+            font-size: small;
+        }
+    }
 </style>
 
 <nav class="navbar navbar-light navbar-expand-sm bg-success m-0 p-0 navbar-fixed-top">
     <!--    logo-->
     <a href="{% url 'courses:index' %}" class="navbar-brand text-uppercase font-italic text-white py-2 px-5">
-        Free E-Courses
+        <span id="nav-logo" style="font-family: 'News706 BT', serif">
+            Free E-Courses
+        </span>
     </a>
     <button type="button" class="navbar-toggler text-white mr-3" data-toggle="collapse" data-target="#navbarLinks">
         <div id="burger-btn">

@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'courses'
+    'storages',
+    'courses',
 ]
 
 MIDDLEWARE = [
@@ -74,10 +75,24 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'FreeCourses',
+        'USER': 'dev_user',
+        'PASSWORD': 'dev_user1798',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -129,3 +144,9 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+# GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = 'courses/credentials.json'
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+# STATICFILES_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = '3E061im87aAAAAAAAAAAPn1IPQanGu925rRbK-s9Cc-BXdmWzZlqjevSdY5cVGC_'
+# DROPBOX_ROOT_PATH = 'Free-Courses'
