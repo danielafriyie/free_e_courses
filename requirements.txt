@@ -1,4 +1,4 @@
-Django==3.0.4
+Django==3.0.7
 django-storages==1.9.1
 dropbox==9.5.0
 Pillow==7.0.0
